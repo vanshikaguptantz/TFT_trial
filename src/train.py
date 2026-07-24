@@ -191,6 +191,17 @@ from lightning.pytorch.loggers import (
 from dataset import get_datasets
 from model import get_model
 
+# ======================================
+# Supress sklearn warning
+# ======================================
+import warnings
+
+warnings.filterwarnings(
+    "ignore",
+    message="X does not have valid feature names, but StandardScaler was fitted with feature names"
+)
+
+
 
 # ============================================================
 # Random Seed
