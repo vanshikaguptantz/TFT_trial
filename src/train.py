@@ -172,7 +172,8 @@
 
 
 # =================================== Updated Code Snippet ===================================
-
+import os
+os.environ["MPLBACKEND"] = "Agg"
 from pathlib import Path
 
 import lightning.pytorch as pl
