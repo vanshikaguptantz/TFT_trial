@@ -1,2 +1,5 @@
-/outputs/
+/outputs/logs
+/outputs/metrics
+/outputs/plots
+/outputs/predictions
 /data/
