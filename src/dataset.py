@@ -381,13 +381,17 @@ def get_datasets(batch_size=64):
     train_dataloader = training.to_dataloader(
         train=True,
         batch_size=batch_size,
-        num_workers=0,
+        num_workers=4,
+        persistent_workers=True,
+        pin_memory=True,
     )
 
     val_dataloader = validation.to_dataloader(
         train=False,
         batch_size=batch_size,
-        num_workers=0,
+        num_workers=4,
+        persistent_workers=True,
+        pin_memory=True,
     )
 
     # ========================================================
@@ -422,4 +426,4 @@ def get_datasets(batch_size=64):
 
 if __name__ == "__main__":
 
-    get_datasets()
+    get_datasets(batch_size=256)

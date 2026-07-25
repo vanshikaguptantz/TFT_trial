@@ -185,6 +185,7 @@ from lightning.pytorch.callbacks import (
 )
 
 from lightning.pytorch.loggers import (
+    CSVLogger,
     TensorBoardLogger,
 )
 
@@ -200,7 +201,6 @@ warnings.filterwarnings(
     "ignore",
     message="X does not have valid feature names, but StandardScaler was fitted with feature names"
 )
-
 
 
 # ============================================================
@@ -269,6 +269,11 @@ tensorboard_logger = TensorBoardLogger(
     name="tft",
 )
 
+csv_logger = CSVLogger(
+    save_dir=LOG_DIR,
+    name="csv_logs",
+)
+
 
 # ============================================================
 # Callbacks
@@ -295,13 +300,13 @@ lr_monitor = LearningRateMonitor(
 
 trainer = pl.Trainer(
 
-    max_epochs=20,
+    max_epochs=1,
 
     accelerator="gpu" if torch.cuda.is_available() else "cpu",
 
     devices=1,
 
-    logger=tensorboard_logger,
+    logger=[tensorboard_logger, csv_logger],
 
     callbacks=[
         checkpoint_callback,
