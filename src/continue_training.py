@@ -1,9 +1,5 @@
 import os
 
-from pytorch_forecasting import TemporalFusionTransformer
-
-from train import METRICS_DIR, PLOTS_DIR, PREDICTIONS_DIR, PLOTS_DIR
-
 os.environ["MPLBACKEND"] = "Agg"
 from pathlib import Path
 
@@ -58,6 +54,12 @@ TB_LOG_DIR = LOG_DIR / "tensorboard"
 CSV_LOG_DIR = LOG_DIR / "csv"
 
 CHECKPOINT_PATH = MODEL_DIR / "best_model.ckpt"
+
+PLOTS_DIR = OUTPUT_DIR / "plots"
+
+METRICS_DIR = OUTPUT_DIR / "metrics"
+
+PREDICTIONS_DIR = OUTPUT_DIR / "predictions"
 
 # ============================================================
 # Create Output Directories
@@ -132,7 +134,7 @@ lr_monitor = LearningRateMonitor(
 
 trainer = pl.Trainer(
 
-    max_epochs=1,
+    max_epochs=20,
 
     accelerator="gpu" if torch.cuda.is_available() else "cpu",
 
