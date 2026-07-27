@@ -53,7 +53,7 @@ TB_LOG_DIR = LOG_DIR / "tensorboard"
 
 CSV_LOG_DIR = LOG_DIR / "csv"
 
-CHECKPOINT_PATH = MODEL_DIR / "best_model.ckpt"
+CHECKPOINT_PATH = MODEL_DIR / "best_model_3.ckpt"
 
 PLOTS_DIR = OUTPUT_DIR / "plots"
 

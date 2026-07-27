@@ -209,7 +209,7 @@ PROCESSED_DATA = PROJECT_ROOT / "data" / "processed"
 # Dataset Loader Function
 # ============================================================
 
-def get_datasets(batch_size=64):
+def get_datasets(batch_size=2048):
 
     # ========================================================
     # Load Dataset
